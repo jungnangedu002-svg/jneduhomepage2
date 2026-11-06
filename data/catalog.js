@@ -11,17 +11,19 @@
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
  *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
- *  summaryPdf: 요약본 PDF 경로 (files/summaries/<id>.pdf, tools/build-summaries.js 로 생성)
- *  summary   : 상세 페이지와 요약 PDF 첫머리에 보이는 요약
+ *  original  : 원문 파일 경로 (files/originals/<id>.<확장자>) — 상세 페이지의 ‘원문 내려받기’
+ *  format    : 원문 형식 ("PDF" | "HWP" …)
+ *  summary   : 상세 페이지 첫머리에 보이는 요약
  *     oneLine   한 줄 요약
  *     easy      쉬운 말 요약 (문장 배열, 짧고 쉬운 표현)
  *     stats     핵심 수치 카드 [{ label, value }]
- *  상세 요약 본문은 data/reports.js 에 같은 id 로 작성합니다.
+ *  상세 요약 본문(상세 페이지에 모두 표시)은 data/reports.js 에 같은 id 로 작성합니다.
  */
 window.CATALOG = [
   {
     id: "red-puppy-interview-2023",
-    summaryPdf: "files/summaries/red-puppy-interview-2023.pdf",
+    original: "files/originals/red-puppy-interview-2023.pdf",
+    format: "PDF",
     firstPage: "assets/firstpages/red-puppy-interview-2023.jpg",
     callNo: "논문-2023-02",
     type: "연구논문",
@@ -51,7 +53,8 @@ window.CATALOG = [
   },
   {
     id: "jayutu-basketball-2023",
-    summaryPdf: "files/summaries/jayutu-basketball-2023.pdf",
+    original: "files/originals/jayutu-basketball-2023.pdf",
+    format: "PDF",
     firstPage: "assets/firstpages/jayutu-basketball-2023.jpg",
     callNo: "논문-2023-01",
     type: "연구논문",
@@ -82,7 +85,8 @@ window.CATALOG = [
   },
   {
     id: "happy-growth-activity-book-2022",
-    summaryPdf: "files/summaries/happy-growth-activity-book-2022.pdf",
+    original: "files/originals/happy-growth-activity-book-2022.pdf",
+    format: "PDF",
     firstPage: "assets/firstpages/happy-growth-activity-book-2022.jpg",
     callNo: "활동북-2022-01",
     type: "활동북",
@@ -112,7 +116,8 @@ window.CATALOG = [
   },
   {
     id: "center-curriculum-study-2020",
-    summaryPdf: "files/summaries/center-curriculum-study-2020.pdf",
+    original: "files/originals/center-curriculum-study-2020.hwp",
+    format: "HWP",
     firstPage: "assets/firstpages/center-curriculum-study-2020.jpg",
     callNo: "논문-2020-01",
     type: "연구논문",

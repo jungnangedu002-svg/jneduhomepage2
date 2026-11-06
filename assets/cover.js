@@ -59,7 +59,7 @@
     if (b.firstPage) {
       return (
         '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover">' +
-        '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" loading="lazy" decoding="async">' +
+        '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" decoding="async">' +
         '<span class="cover__tag">' + esc(b.type) + "</span></div>"
       );
     }
