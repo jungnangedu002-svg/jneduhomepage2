@@ -66,8 +66,8 @@
       "</div></div></section>" +
 
       '<section class="section"><div class="wrap">' +
-      '<div class="section__head"><h2>신착 자료</h2><a class="more" href="#/list">전체 자료 보기 →</a></div>' +
-      '<div class="shelf"><div class="shelf__row">' + BOOKS.slice(0, 8).map(bookCard).join("") +
+      '<div class="section__head"><h2>전체 자료</h2><a class="more" href="#/list">목록으로 보기 →</a></div>' +
+      '<div class="shelf"><div class="shelf__row">' + BOOKS.map(bookCard).join("") +
       '</div></div><div class="shelf__board" aria-hidden="true"></div>' +
       "</div></section>";
 
