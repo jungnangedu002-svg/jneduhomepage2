@@ -58,7 +58,8 @@
     // 원문 첫 페이지 이미지가 있으면 그것을 표지로 사용
     if (b.firstPage) {
       return (
-        '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover">' +
+        '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover"' +
+        (b.coverRatio ? ' style="aspect-ratio: ' + esc(b.coverRatio) + '"' : "") + ">" +
         '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" decoding="async">' +
         '<span class="cover__tag">' + esc(b.type) + "</span></div>"
       );
