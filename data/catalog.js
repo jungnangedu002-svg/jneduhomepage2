@@ -24,7 +24,6 @@
 window.CATALOG = [
   {
     id: "future-design-academy-2026",
-    original: "files/originals/future-design-academy-2026.pptx",
     format: "PPTX",
     firstPage: "assets/firstpages/future-design-academy-2026.jpg",
     callNo: "발표-2026-01",
