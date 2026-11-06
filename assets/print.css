@@ -1,0 +1,150 @@
+/* 중랑평교 도서관 — 요약본 PDF 인쇄용 스타일 (tools/build-summaries.js 에서 사용) */
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  src: url("fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+@page {
+  size: A4;
+  margin: 18mm 17mm 20mm;
+  @bottom-left {
+    content: "중랑평교 도서관 · 요약본";
+    font-family: "Pretendard Variable", sans-serif; font-size: 8pt; color: #8a8173;
+  }
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-family: "Pretendard Variable", sans-serif; font-size: 8pt; color: #8a8173;
+  }
+}
+@page :first {
+  margin: 0;
+  @bottom-left { content: none; }
+  @bottom-right { content: none; }
+}
+
+:root {
+  --ink: #23201b; --ink-2: #5a5348; --ink-3: #8a8173; --line: #e2d8c3;
+  --paper: #f7f2e7; --paper-2: #efe6d3; --navy: #1f3a5f; --gold: #b8862f; --gold-soft: #f3e7c9;
+  --accent: #1f3a5f;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  font-family: "Pretendard Variable", sans-serif; color: var(--ink);
+  font-size: 10.2pt; line-height: 1.72; word-break: keep-all; overflow-wrap: anywhere;
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+
+/* ---------- 표지 페이지 ---------- */
+.titlepage {
+  width: 210mm; height: 297mm; position: relative; overflow: hidden;
+  background: var(--paper); display: flex; flex-direction: column;
+  break-after: page;
+}
+.titlepage__bar {
+  background: var(--navy); color: #f7f2e7; padding: 9mm 18mm 8mm; display: flex; justify-content: space-between; align-items: end;
+  border-bottom: 1.4mm solid var(--gold);
+}
+.titlepage__bar b { font-size: 17pt; letter-spacing: -.01em; }
+.titlepage__bar span { font-size: 9pt; opacity: .85; }
+.titlepage__main { flex: 1; display: grid; grid-template-columns: 74mm 1fr; gap: 12mm; padding: 18mm 18mm 0; align-items: start; }
+.titlepage__cover .cover { box-shadow: 3mm 5mm 9mm rgba(40,25,5,.28); }
+.titlepage__label {
+  display: inline-block; font-size: 9pt; font-weight: 700; letter-spacing: .12em; color: var(--gold);
+  border: .3mm solid var(--gold); border-radius: 99px; padding: .6mm 4mm; margin-bottom: 5mm;
+}
+.titlepage h1 { font-size: 22pt; line-height: 1.35; margin: 0 0 3mm; letter-spacing: -.02em; font-weight: 800; }
+.titlepage .sub { font-size: 11.5pt; color: var(--ink-2); margin: 0 0 8mm; }
+.biblio { width: 100%; border-collapse: collapse; font-size: 9.3pt; background: #fffdf8; }
+.biblio th, .biblio td { text-align: left; padding: 2.2mm 3mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+.biblio th { width: 22mm; color: var(--ink-3); font-weight: 500; background: var(--paper-2); }
+.biblio tr:first-child th, .biblio tr:first-child td { border-top: .25mm solid var(--line); }
+.titlepage__lead { margin: 12mm 18mm 0; padding: 6mm 7mm; background: #fffdf8; border-left: 1.4mm solid var(--gold); border-radius: 2mm; font-size: 11pt; line-height: 1.8; }
+.titlepage__lead b { display: block; font-size: 9pt; color: var(--gold); letter-spacing: .08em; margin-bottom: 1mm; }
+.titlepage__foot { margin: auto 18mm 12mm; display: flex; justify-content: space-between; font-size: 8.5pt; color: var(--ink-3); border-top: .25mm solid var(--line); padding-top: 4mm; }
+
+/* ---------- 본문 ---------- */
+.overview { break-after: page; }
+.sec-title { font-size: 15pt; font-weight: 800; color: var(--navy); margin: 0 0 4mm; letter-spacing: -.01em; break-after: avoid; }
+.sec-title small { display: block; font-size: 8.5pt; font-weight: 700; letter-spacing: .14em; color: var(--gold); }
+.panel { border: .3mm solid var(--line); border-radius: 3mm; padding: 5mm 6mm; margin-bottom: 6mm; break-inside: avoid; }
+.panel h2 { font-size: 11.5pt; margin: 0 0 3mm; color: var(--navy); }
+.easy { background: var(--gold-soft); border-color: #e7d6ac; }
+.easy ol { list-style: none; counter-reset: e; margin: 0; padding: 0; }
+.easy li { counter-increment: e; display: flex; gap: 3.5mm; font-size: 12.5pt; line-height: 1.6; margin-bottom: 2.6mm; }
+.easy li::before { content: counter(e); flex: none; width: 7mm; height: 7mm; border-radius: 50%; background: var(--navy); color: #fff; font-size: 9.5pt; font-weight: 700; display: grid; place-items: center; margin-top: .4mm; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3mm; }
+.kpi { border: .3mm solid var(--line); border-radius: 2.5mm; padding: 3mm 4mm; background: #fffdf8; }
+.kpi b { display: block; font-size: 14pt; color: var(--navy); line-height: 1.3; }
+.kpi span { font-size: 8.5pt; color: var(--ink-3); }
+.toc ol { margin: 0; padding-left: 0; list-style: none; counter-reset: t; columns: 2; column-gap: 8mm; }
+.toc li { counter-increment: t; padding: 1.4mm 0; border-bottom: .25mm dotted var(--line); break-inside: avoid; }
+.toc li::before { content: counter(t, decimal-leading-zero) "  "; color: var(--gold); font-weight: 700; }
+
+.chapter { margin-bottom: 9mm; }
+.chapter > h2 {
+  font-size: 14pt; font-weight: 800; color: var(--navy); margin: 0 0 4mm; padding-bottom: 2mm;
+  border-bottom: .6mm solid var(--navy); break-after: avoid; letter-spacing: -.01em;
+}
+.chapter > h2 .no { color: var(--gold); margin-right: 2.5mm; }
+.chapter h3 { font-size: 11pt; margin: 5mm 0 2mm; color: var(--ink); break-after: avoid; display: flex; gap: 2mm; align-items: center; }
+.chapter h3::before { content: ""; width: 1.2mm; height: 4mm; background: var(--gold); border-radius: 1mm; }
+.chapter p { margin: 0 0 3mm; }
+.chapter ul, .chapter ol { margin: 0 0 3mm; padding-left: 5.5mm; }
+.chapter li { margin-bottom: 1.4mm; }
+.chapter ul li::marker { color: var(--gold); }
+.chapter ol li::marker { color: var(--navy); font-weight: 700; }
+
+.tbl.keep { break-inside: avoid; }
+table.data caption, table.data thead { break-after: avoid; }
+table.data { width: 100%; border-collapse: collapse; margin: 1mm 0 4mm; font-size: 9pt; line-height: 1.55; }
+table.data caption { caption-side: top; text-align: left; font-weight: 700; font-size: 9.3pt; color: var(--ink-2); padding-bottom: 1.5mm; }
+table.data th { background: var(--navy); color: #fff; font-weight: 600; text-align: left; padding: 2mm 2.6mm; }
+table.data td { padding: 2mm 2.6mm; border-bottom: .25mm solid var(--line); vertical-align: top; }
+table.data tr:nth-child(even) td { background: #faf6ec; }
+table.data tr { break-inside: avoid; }
+table.data td:first-child { font-weight: 600; white-space: nowrap; }
+.tnote { font-size: 8.5pt; color: var(--ink-3); margin: -2.5mm 0 4mm; }
+
+blockquote {
+  margin: 0 0 3mm; padding: 2.6mm 4.5mm 2.6mm 9mm; background: #faf6ec; border-radius: 2mm; position: relative;
+  font-size: 9.8pt; color: var(--ink-2); break-inside: avoid;
+}
+blockquote::before { content: "“"; position: absolute; left: 2.6mm; top: -.5mm; font-size: 20pt; color: var(--gold); font-weight: 800; }
+blockquote cite { display: block; text-align: right; font-style: normal; font-size: 8.5pt; color: var(--ink-3); margin-top: .8mm; }
+
+.box { border: .35mm solid var(--gold); background: #fffaf0; border-radius: 2.5mm; padding: 4mm 5mm; margin: 2mm 0 4mm; break-inside: avoid; }
+.box b { display: block; color: var(--gold); font-size: 9pt; letter-spacing: .06em; margin-bottom: 1mm; }
+
+.colophon { break-before: auto; margin-top: 8mm; padding: 5mm 6mm; background: var(--paper); border-radius: 3mm; font-size: 8.8pt; color: var(--ink-2); break-inside: avoid; }
+.colophon h2 { font-size: 10pt; margin: 0 0 2mm; color: var(--ink); }
+.colophon p { margin: 0 0 1.4mm; }
+
+/* 표지 그림 (assets/style.css 와 같은 규칙) */
+.cover {
+  --c1: #1f3a5f; --c2: #142843; --fg: #f7f2e7; --ac: #e0b45e;
+  position: relative; aspect-ratio: 3 / 4.2; width: 100%;
+  background: linear-gradient(155deg, var(--c1), var(--c2));
+  color: var(--fg); border-radius: 1mm 3mm 3mm 1mm; overflow: hidden; container-type: inline-size;
+}
+.cover::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 7%; background: linear-gradient(90deg, rgba(0,0,0,.35), rgba(255,255,255,.12) 60%, rgba(0,0,0,.15)); }
+.cover::after { content: ""; position: absolute; inset: 0; background: linear-gradient(110deg, rgba(255,255,255,.14), transparent 38%, transparent 70%, rgba(0,0,0,.12)); }
+.cover__inner { position: absolute; inset: 0 0 0 7%; padding: 9cqi 9cqi 8cqi 8cqi; display: flex; flex-direction: column; }
+.cover__type { font-size: 5.6cqi; letter-spacing: .14em; font-weight: 700; color: var(--ac); display: flex; align-items: center; gap: 2.5cqi; }
+.cover__type::after { content: ""; flex: 1; height: 1px; background: currentColor; opacity: .5; }
+.cover__title { font-weight: 900; font-size: 9.4cqi; line-height: 1.32; margin: 5cqi 0 0; letter-spacing: -.02em; }
+.cover--long .cover__title { font-size: 8cqi; }
+.cover__sub { font-size: 5cqi; line-height: 1.45; opacity: .82; margin-top: 3cqi; }
+.cover--long .cover__sub { font-size: 4.6cqi; }
+.cover__motif { flex: 1; display: grid; place-items: center; min-height: 0; padding: 3cqi 0; }
+.cover__motif svg { width: 46%; min-width: 34cqi; height: auto; max-height: 100%; color: var(--ac); }
+.cover__foot { display: flex; justify-content: space-between; align-items: end; gap: 3cqi; font-size: 4.8cqi; }
+.cover__year { font-weight: 700; color: var(--ac); font-size: 6cqi; white-space: nowrap; flex: none; }
+.t-navy    { --c1: #26476f; --c2: #142a46; --ac: #e8c27a; --fg: #f7f2e7; }
+.t-forest  { --c1: #3b6e4f; --c2: #1f4330; --ac: #f2d98c; --fg: #f6f4e8; }
+.t-crimson { --c1: #b23a3a; --c2: #6e1d24; --ac: #ffd9a8; --fg: #fff6ef; }
+.t-amber   { --c1: #e08a2c; --c2: #a8501a; --ac: #fff1cf; --fg: #fffaf0; }
+.t-plum    { --c1: #6c4a8a; --c2: #3e2753; --ac: #f0cfe8; --fg: #fbf5ff; }
+.t-teal    { --c1: #2a8486; --c2: #155052; --ac: #d8f2e6; --fg: #f2fbf8; }
+.t-slate   { --c1: #4d5866; --c2: #2b323b; --ac: #f0d8a8; --fg: #f4f3ef; }
