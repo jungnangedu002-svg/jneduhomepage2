@@ -6,7 +6,8 @@
  *
  *  id        : 영문 소문자-하이픈 고유값 (주소창 #/book/<id> 에 사용)
  *  callNo    : 청구기호  [유형코드]-[발행연도]-[일련번호]
- *  type      : "연구논문" | "교육자료" | "보고서" | "활동북" 등
+ *  type      : "연구논문" | "교육자료" | "보고서" | "활동북" | "발표자료" 등
+ *  pages     : 쪽수(숫자) / pagesLabel: 쪽수 대신 보여 줄 말(선택, 예: "슬라이드 23장")
  *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
@@ -21,6 +22,39 @@
  *  상세 요약 본문(상세 페이지에 모두 표시)은 data/reports.js 에 같은 id 로 작성합니다.
  */
 window.CATALOG = [
+  {
+    id: "future-design-academy-2026",
+    original: "files/originals/future-design-academy-2026.pptx",
+    format: "PPTX",
+    firstPage: "assets/firstpages/future-design-academy-2026.jpg",
+    callNo: "발표-2026-01",
+    type: "발표자료",
+    title: "미래설계 아카데미 개발 배경 및 과정",
+    subtitle: "2026년 공동세미나 「미래를 그리는 배움의 힘」 발표자료",
+    authors: ["박종두"],
+    publisher: "한국미래설계복지실천학회 · 동대문구·중랑구발달장애인평생교육센터 공동세미나",
+    year: 2026,
+    pages: 23,
+    pagesLabel: "슬라이드 23장",
+    keywords: ["미래설계", "평생과정설계", "자기결정", "자립", "IPA", "발달장애인"],
+    cover: { theme: "teal", motif: "puzzle" },
+    summary: {
+      oneLine:
+        "발달장애인이 보건의료·문화여가·결혼·교육·소득재정·직업·주거·법 8개 영역의 미래를 스스로 설계하도록 만든 12회기 ‘미래설계(PPP) 아카데미’의 개발 배경과 회기별 과정, IPA 영역 탐색과 사전–사후 검사 결과를 소개한 2026년 공동세미나 발표자료입니다.",
+      easy: [
+        "미래설계 아카데미는 내 꿈과 행복한 미래를 준비하는 수업이에요.",
+        "12번 만나서 건강, 돈, 일, 집, 가족, 법 같은 것을 하나씩 배웠어요.",
+        "AI로 미래 가족을 그려 보고, 지원주택에도 직접 가 봤어요.",
+        "배우고 나서 내 미래를 더 잘 알게 되고, 스스로 해 보고 싶은 마음이 커졌어요."
+      ],
+      stats: [
+        { label: "프로그램", value: "12회기" },
+        { label: "미래설계 영역", value: "8개" },
+        { label: "이해도 유의미한 향상", value: "8개 중 7개 영역" },
+        { label: "세미나", value: "2026. 8. 13." }
+      ]
+    }
+  },
   {
     id: "red-puppy-interview-2023",
     original: "files/originals/red-puppy-interview-2023.pdf",
