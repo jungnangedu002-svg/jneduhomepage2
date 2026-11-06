@@ -13,6 +13,7 @@
 - `data/reports.js` — 자료별 자세한 요약 본문(상세 페이지에 모두 표시)
 - `files/originals/<id>.<확장자>` — 원문 파일(내려받기용)
 - `assets/firstpages/<id>.jpg` — 원문 첫 페이지 이미지(표지)
+- `assets/og-image.png` — 공유 미리보기 이미지(글자만, `tools/og-image.html` → `node tools/build-og-image.js`), 공유 문구는 `index.html`의 og:/twitter: 태그
 - `docs/process/` — 작업 과정 그림
 - `tools/hwp2txt.py` — HWP 본문 추출, `tools/hwp-render/render-first-page.js` — HWP 첫 페이지 이미지, `tools/screenshot.js` — 화면 캡처
 - (선택) `tools/build-summaries.js` + `assets/print.css` — 요약을 PDF로 따로 만들 때만 사용(사이트에는 연결하지 않음)
