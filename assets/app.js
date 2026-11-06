@@ -133,6 +133,24 @@
     render();
   }
 
+  /* 상세 요약 본문 블록 (data/reports.js) */
+  function blockHtml(b) {
+    if (b.h3) return "<h3>" + esc(b.h3) + "</h3>";
+    if (b.p) return "<p>" + esc(b.p) + "</p>";
+    if (b.ul) return "<ul>" + b.ul.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul>";
+    if (b.ol) return "<ol>" + b.ol.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ol>";
+    if (b.quote) return "<blockquote>" + esc(b.quote) + (b.by ? "<cite>— " + esc(b.by) + "</cite>" : "") + "</blockquote>";
+    if (b.box) return '<div class="rbox">' + (b.title ? "<b>" + esc(b.title) + "</b>" : "") + esc(b.box) + "</div>";
+    if (b.table) {
+      var t = b.table;
+      return '<div class="rtable"><table>' + (t.caption ? "<caption>" + esc(t.caption) + "</caption>" : "") +
+        "<thead><tr>" + t.head.map(function (h) { return '<th scope="col">' + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
+        t.rows.map(function (r) { return "<tr>" + r.map(function (c) { return "<td>" + esc(c) + "</td>"; }).join("") + "</tr>"; }).join("") +
+        "</tbody></table></div>" + (t.note ? '<p class="rnote">※ ' + esc(t.note) + "</p>" : "");
+    }
+    return "";
+  }
+
   function viewBook(id) {
     var b = byId(id);
     if (!b) {
@@ -140,12 +158,13 @@
       return;
     }
     var s = b.summary || {};
+    var chapters = ((window.REPORTS || {})[b.id] || {}).chapters || [];
     var rows = [
       ["저자", (b.authors || []).join(", ")],
       ["발행", b.publisher],
       ["발행연도", b.year],
-      ["자료유형", b.type],
-      ["분량", b.pages ? "원문 " + b.pages + "쪽" : ""],
+      ["자료유형", b.type + (b.format ? " (" + b.format + ")" : "")],
+      ["분량", b.pages ? b.pages + "쪽" : ""],
       ["청구기호", b.callNo]
     ].filter(function (r) { return r[1]; });
 
@@ -154,10 +173,12 @@
     });
     if (!related.length) related = BOOKS.filter(function (x) { return x.id !== b.id; });
 
-    var report = (window.REPORTS || {})[b.id] || {};
-    var chapters = report.chapters || [];
-    var pdfName = b.title + " 요약본.pdf";
     var dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>';
+    var ext = (b.original || "").split(".").pop();
+    var dlName = b.title + (ext ? "." + ext : "");
+    var dlBtn = b.original
+      ? '<a class="btn btn--primary" href="' + esc(b.original) + '" download="' + esc(dlName) + '">' + dlIcon + "원문 내려받기 (" + esc(b.format || ext.toUpperCase()) + ")</a>"
+      : "";
 
     main.innerHTML =
       '<div class="wrap">' +
@@ -166,38 +187,56 @@
       '<article class="detail">' +
       '<aside class="detail__aside">' + cover(b, true) +
       '<div class="callno">청구기호 <b>' + esc(b.callNo) + "</b></div>" +
-      '<div class="btns">' +
-      (b.summaryPdf ? '<a class="btn btn--primary" href="' + esc(b.summaryPdf) + '" download="' + esc(pdfName) + '">' + dlIcon + "요약본 PDF 내려받기</a>" : "") +
-      '<a class="btn btn--ghost" href="#/list">← 목록으로</a></div></aside>' +
+      '<div class="btns">' + dlBtn + '<a class="btn btn--ghost" href="#/list">← 목록으로</a></div>' +
+      (chapters.length ? '<nav class="side-toc" aria-label="요약 차례"><b>차례</b><ol>' +
+        '<li><a href="#" data-jump="sum-overview">한눈에 보기</a></li>' +
+        chapters.map(function (c, i) { return '<li><a href="#" data-jump="sum-ch' + (i + 1) + '">' + esc(c.h) + "</a></li>"; }).join("") +
+        "</ol></nav>" : "") +
+      "</aside>" +
 
-      "<div>" +
+      '<div class="detail__body">' +
       '<span class="detail__type">' + esc(b.type) + "</span>" +
       "<h1>" + esc(b.title) + "</h1>" +
       (b.subtitle ? '<p class="subtitle">' + esc(b.subtitle) + "</p>" : "") +
       '<table class="biblio"><tbody>' +
-      rows.map(function (r) { return "<tr><th scope=\"row\">" + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("") +
+      rows.map(function (r) { return '<tr><th scope="row">' + esc(r[0]) + "</th><td>" + esc(r[1]) + "</td></tr>"; }).join("") +
       (b.keywords && b.keywords.length ? '<tr><th scope="row">키워드</th><td><div class="kw">' +
         b.keywords.map(function (k) { return '<a href="#/list?q=' + encodeURIComponent(k) + '">#' + esc(k) + "</a>"; }).join("") +
         "</div></td></tr>" : "") +
       "</tbody></table>" +
 
+      '<div id="sum-overview">' +
       (s.oneLine ? '<section class="panel"><h2><span class="ico" aria-hidden="true">✦</span>한눈에 보기</h2><p class="oneline">' + esc(s.oneLine) + "</p></section>" : "") +
       (s.easy && s.easy.length ? '<section class="panel easy"><h2><span class="ico" aria-hidden="true">☺</span>쉬운 말 요약</h2><ol>' +
         s.easy.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ol></section>" : "") +
       (s.stats && s.stats.length ? '<section class="panel"><h2><span class="ico" aria-hidden="true">#</span>핵심 숫자</h2><div class="kpis">' +
         s.stats.map(function (k) { return '<div class="kpi"><b>' + esc(k.value) + "</b><span>" + esc(k.label) + "</span></div>"; }).join("") +
         "</div></section>" : "") +
-      (b.summaryPdf ? '<section class="panel pdfbox"><h2><span class="ico" aria-hidden="true">≡</span>자세한 요약본 (PDF)</h2>' +
-        '<p class="pdfbox__lead">배경·방법·결과·제언과 표, 인터뷰 내용까지 자세히 정리한 요약본을 내려받아 읽어 보세요.</p>' +
-        (chapters.length ? '<ol class="pdfbox__toc">' + chapters.map(function (c) { return "<li>" + esc(c.h) + "</li>"; }).join("") + "</ol>" : "") +
-        '<a class="btn btn--primary pdfbox__btn" href="' + esc(b.summaryPdf) + '" download="' + esc(pdfName) + '">' + dlIcon + "요약본 PDF 내려받기</a>" +
-        "</section>" : "") +
+      "</div>" +
+
+      chapters.map(function (c, i) {
+        return '<section class="panel report" id="sum-ch' + (i + 1) + '"><h2 class="report__h"><span class="report__no">' +
+          (i + 1 < 10 ? "0" : "") + (i + 1) + "</span>" + esc(c.h) + "</h2>" + c.blocks.map(blockHtml).join("") + "</section>";
+      }).join("") +
+
+      (b.original ? '<section class="panel source"><h2><span class="ico" aria-hidden="true">↓</span>원문 보기</h2>' +
+        "<p>이 요약은 원문을 바탕으로 정리한 것입니다. 전체 내용은 원문 파일에서 확인하세요. 원문의 저작권은 저자와 발행처에 있습니다.</p>" +
+        '<div class="source__btn">' + dlBtn + "</div></section>" : "") +
       "</div></article>" +
 
       '<section class="related"><div class="section__head"><h2>함께 보면 좋은 자료</h2></div>' +
       '<div class="grid">' + related.slice(0, 5).map(bookCard).join("") + "</div></section>" +
       "</div>";
     document.title = b.title + " · 중랑평교 도서관";
+
+    // 차례: 주소(hash) 라우팅을 건드리지 않고 해당 부분으로 이동
+    main.querySelectorAll("[data-jump]").forEach(function (a) {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        var el = document.getElementById(a.getAttribute("data-jump"));
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   }
 
   function viewAbout() {
@@ -207,9 +246,9 @@
       "<p><b>중랑평교 도서관</b>은 중랑구발달장애인평생교육센터가 만들고 참여한 연구논문, 활동북, 교육자료를 누구나 쉽게 찾아 읽을 수 있도록 모아 둔 온라인 자료실입니다.</p>" +
       '<ol class="steps">' +
       "<li><b>찾기</b><br>홈의 검색창이나 키워드, 자료 유형 탭으로 원하는 자료를 찾아요.</li>" +
-      "<li><b>표지 누르기</b><br>책 표지를 누르면 서지정보와 짧은 요약이 열려요.</li>" +
-      "<li><b>요약 읽기</b><br>‘한눈에 보기’와 ‘쉬운 말 요약’으로 내용을 먼저 살펴보세요.</li>" +
-      "<li><b>요약본 PDF</b><br>‘요약본 PDF 내려받기’ 버튼으로 자세한 요약본을 받을 수 있어요.</li>" +
+      "<li><b>표지 누르기</b><br>책 표지를 누르면 서지정보와 요약이 한 화면에 열려요.</li>" +
+      "<li><b>요약 읽기</b><br>‘한눈에 보기’와 ‘쉬운 말 요약’을 먼저 읽고, 아래로 내려 자세한 요약을 읽어요.</li>" +
+      "<li><b>원문 보기</b><br>‘원문 내려받기’ 버튼으로 원래 파일을 받을 수 있어요.</li>" +
       "</ol>" +
       "<p>자료 문의: 중랑구발달장애인평생교육센터 · T. 02-6953-0704</p>" +
       "</div></section>";
