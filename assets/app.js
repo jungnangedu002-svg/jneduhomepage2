@@ -178,7 +178,7 @@
     var dlName = b.title + (ext ? "." + ext : "");
     var dlBtn = b.original
       ? '<a class="btn btn--primary" href="' + esc(b.original) + '" download="' + esc(dlName) + '">' + dlIcon + "원문 내려받기 (" + esc(b.format || ext.toUpperCase()) + ")</a>"
-      : "";
+      : '<p class="no-download">이 자료는 원문을 내려받을 수 없어요.</p>';
 
     main.innerHTML =
       '<div class="wrap">' +

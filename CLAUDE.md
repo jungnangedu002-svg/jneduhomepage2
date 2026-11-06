@@ -19,6 +19,7 @@
 
 ## 새 자료가 올라오면 (항상 같은 방식으로)
 1. 원문을 `files/originals/<id>.<확장자>` 로 복사 (id: `영문-요약명-발행연도`, 내용은 바꾸지 않음)
+   - 원문 공개를 원하지 않는 자료는 복사하지 않고 catalog에서 `original`을 뺌 → 상세 페이지에 “원문을 내려받을 수 없어요” 표시 (현재: 우리들의 행복성장교실)
 2. 원문 읽기: PDF는 `pdftotext -layout`, HWP는 `pip install olefile && python3 -I tools/hwp2txt.py <파일>`
 3. 원문 첫 페이지를 이미지로 저장 → `assets/firstpages/<id>.jpg`
    - PDF: `pdftoppm -f 1 -l 1 -r 110 -jpeg -jpegopt quality=85 -singlefile <원문.pdf> assets/firstpages/<id>`
