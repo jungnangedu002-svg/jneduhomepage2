@@ -154,6 +154,17 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 }
 .cover--lg { border-radius: 4px 12px 12px 4px; }
 
+/* 원문 첫 페이지 표지 */
+.cover--page { background: #fff; border-radius: 2px 4px 4px 2px; box-shadow: 0 0 0 1px rgba(60,40,10,.12), 4px 8px 16px rgba(40,25,5,.22); }
+.cover--page::before { width: 4%; background: linear-gradient(90deg, rgba(0,0,0,.14), rgba(0,0,0,0)); z-index: 1; }
+.cover--page::after { background: linear-gradient(110deg, rgba(255,255,255,.18), transparent 40%); z-index: 1; }
+.cover--page img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.cover__tag {
+  position: absolute; left: 0; bottom: 8%; z-index: 2;
+  background: var(--c1); color: var(--fg); font-size: 6.4cqi; font-weight: 700; letter-spacing: .06em;
+  padding: 1.6cqi 4.5cqi 1.6cqi 6cqi; border-radius: 0 999px 999px 0; box-shadow: 0 2px 6px rgba(0,0,0,.2);
+}
+
 /* themes */
 .t-navy    { --c1: #26476f; --c2: #142a46; --ac: #e8c27a; --fg: #f7f2e7; }
 .t-forest  { --c1: #3b6e4f; --c2: #1f4330; --ac: #f2d98c; --fg: #f6f4e8; }

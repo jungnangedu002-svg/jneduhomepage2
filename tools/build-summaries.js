@@ -45,6 +45,7 @@ function blockHtml(b) {
 
 // 요약본 첫 장에 넣을 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg|png)
 function firstPage(b) {
+  if (b.firstPage && fs.existsSync(path.join(ROOT, b.firstPage))) return path.join(ROOT, b.firstPage);
   for (const ext of ["jpg", "png"]) {
     const f = path.join(ROOT, "assets", "firstpages", `${b.id}.${ext}`);
     if (fs.existsSync(f)) return f;

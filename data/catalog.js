@@ -7,9 +7,10 @@
  *  id        : 영문 소문자-하이픈 고유값 (주소창 #/book/<id> 에 사용)
  *  callNo    : 청구기호  [유형코드]-[발행연도]-[일련번호]
  *  type      : "연구논문" | "교육자료" | "보고서" | "활동북" 등
- *  cover     : { theme: 색상테마, motif: 표지 그림 }
+ *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
+ *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
  *  summaryPdf: 요약본 PDF 경로 (files/summaries/<id>.pdf, tools/build-summaries.js 로 생성)
  *  summary   : 상세 페이지와 요약 PDF 첫머리에 보이는 요약
  *     oneLine   한 줄 요약
@@ -21,6 +22,7 @@ window.CATALOG = [
   {
     id: "red-puppy-interview-2023",
     summaryPdf: "files/summaries/red-puppy-interview-2023.pdf",
+    firstPage: "assets/firstpages/red-puppy-interview-2023.jpg",
     callNo: "논문-2023-02",
     type: "연구논문",
     title: "문화예술교육이 성인발달장애인의 삶의 질에 미치는 영향",
@@ -50,6 +52,7 @@ window.CATALOG = [
   {
     id: "jayutu-basketball-2023",
     summaryPdf: "files/summaries/jayutu-basketball-2023.pdf",
+    firstPage: "assets/firstpages/jayutu-basketball-2023.jpg",
     callNo: "논문-2023-01",
     type: "연구논문",
     title: "최중증성인발달장애인의 문화예술교육 효과성 검증에 관한 연구",
@@ -80,6 +83,7 @@ window.CATALOG = [
   {
     id: "happy-growth-activity-book-2022",
     summaryPdf: "files/summaries/happy-growth-activity-book-2022.pdf",
+    firstPage: "assets/firstpages/happy-growth-activity-book-2022.jpg",
     callNo: "활동북-2022-01",
     type: "활동북",
     title: "우리들의 행복성장교실",
@@ -109,6 +113,7 @@ window.CATALOG = [
   {
     id: "center-curriculum-study-2020",
     summaryPdf: "files/summaries/center-curriculum-study-2020.pdf",
+    firstPage: "assets/firstpages/center-curriculum-study-2020.jpg",
     callNo: "논문-2020-01",
     type: "연구논문",
     title: "발달장애인 평생교육센터의 교육과정에 관한 고찰",
