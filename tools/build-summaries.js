@@ -43,7 +43,17 @@ function blockHtml(b) {
   throw new Error("알 수 없는 블록: " + JSON.stringify(b).slice(0, 80));
 }
 
+// 요약본 첫 장에 넣을 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg|png)
+function firstPage(b) {
+  for (const ext of ["jpg", "png"]) {
+    const f = path.join(ROOT, "assets", "firstpages", `${b.id}.${ext}`);
+    if (fs.existsSync(f)) return f;
+  }
+  return null;
+}
+
 function pageHtml(b, report) {
+  const fp = firstPage(b);
   const s = b.summary || {};
   const rows = [
     ["저자", (b.authors || []).join(", ")],
@@ -66,7 +76,9 @@ function pageHtml(b, report) {
 <section class="titlepage">
   <div class="titlepage__bar"><b>중랑평교 도서관</b><span>중랑구발달장애인평생교육센터 온라인 자료실</span></div>
   <div class="titlepage__main">
-    <div class="titlepage__cover">${cover(b, true)}</div>
+    <div class="titlepage__cover">${fp
+      ? `<figure class="firstpage"><img src="file://${fp}" alt="원문 첫 페이지"><figcaption>원문 첫 페이지</figcaption></figure>`
+      : cover(b, true)}</div>
     <div>
       <span class="titlepage__label">자료 요약본</span>
       <h1>${esc(b.title)}</h1>
@@ -106,6 +118,7 @@ ${chapters.map((c, i) => `<section class="chapter"><h2><span class="no">${String
   for (const b of list) {
     const report = REPORTS[b.id];
     if (!report) throw new Error(`data/reports.js 에 '${b.id}' 요약 본문이 없습니다.`);
+    if (!firstPage(b)) console.warn(`⚠ assets/firstpages/${b.id}.jpg 가 없어 표지 그림을 대신 넣습니다.`);
     const htmlFile = path.join(tmp, b.id + ".html");
     fs.writeFileSync(htmlFile, pageHtml(b, report));
     const page = await browser.newPage();
