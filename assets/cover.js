@@ -55,6 +55,14 @@
   function cover(b, lg) {
     var c = b.cover || {};
     var theme = c.theme || "navy";
+    // 원문 첫 페이지 이미지가 있으면 그것을 표지로 사용
+    if (b.firstPage) {
+      return (
+        '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover">' +
+        '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" loading="lazy" decoding="async">' +
+        '<span class="cover__tag">' + esc(b.type) + "</span></div>"
+      );
+    }
     var motif = MOTIFS[c.motif] || MOTIFS.book;
     return (
       '<div class="cover t-' + esc(theme) + (lg ? " cover--lg" : "") + (b.title.length > 20 ? " cover--long" : "") + ' book__cover" role="img" aria-label="' +
