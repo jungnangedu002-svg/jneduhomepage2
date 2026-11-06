@@ -1,0 +1,33 @@
+<!doctype html>
+<!-- 공유 미리보기 이미지(1200×630) 원본. 다시 만들기: node tools/build-og-image.js -->
+<html lang="ko"><head><meta charset="utf-8">
+<style>
+@font-face { font-family: "Pretendard Variable"; font-weight: 45 920; src: url("../assets/fonts/PretendardVariable.woff2") format("woff2-variations"); }
+* { box-sizing: border-box; margin: 0; }
+body { width: 1200px; height: 630px; font-family: "Pretendard Variable", sans-serif; background: #f7f2e7; color: #23201b; position: relative; overflow: hidden; word-break: keep-all; }
+.bar { position: absolute; inset: 0 0 auto 0; height: 22px; background: #1f3a5f; border-bottom: 8px solid #b8862f; height: 30px; }
+.wrap { position: absolute; inset: 30px 0 0 0; padding: 78px 88px 0; }
+.brand { display: flex; align-items: center; gap: 22px; }
+.mark { width: 92px; height: 92px; border-radius: 20px; background: #1f3a5f; display: grid; place-items: center; }
+.mark svg { width: 58px; height: 58px; fill: #f3e7c9; }
+.kicker { font-size: 26px; font-weight: 600; color: #b8862f; letter-spacing: .04em; }
+h1 { font-size: 104px; font-weight: 850; letter-spacing: -.035em; line-height: 1.1; margin-top: 44px; color: #1f3a5f; }
+.lead { font-size: 36px; font-weight: 500; color: #4a443a; margin-top: 22px; line-height: 1.45; }
+.chips { position: absolute; left: 88px; bottom: 64px; display: flex; gap: 14px; }
+.chip { font-size: 26px; font-weight: 700; padding: 10px 24px; border-radius: 999px; background: #fffdf8; border: 2px solid #e2d8c3; color: #5a5348; }
+.chip.on { background: #1f3a5f; border-color: #1f3a5f; color: #f7f2e7; }
+.deco { position: absolute; right: -40px; bottom: -60px; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle at 40% 40%, rgba(184,134,47,.22), rgba(184,134,47,0) 70%); }
+</style></head>
+<body>
+  <div class="bar"></div>
+  <div class="deco"></div>
+  <div class="wrap">
+    <div class="brand">
+      <div class="mark"><svg viewBox="0 0 32 32"><path d="M6 8h8a3 3 0 0 1 3 3v14a3 3 0 0 0-3-3H6z"/><path d="M26 8h-8a3 3 0 0 0-3 3v14a3 3 0 0 1 3-3h8z"/></svg></div>
+      <div class="kicker">중랑구발달장애인평생교육센터 온라인 자료실</div>
+    </div>
+    <h1>중랑평교 도서관</h1>
+    <p class="lead">센터가 만든 연구와 교육자료를<br>쉬운 요약으로 한눈에 읽어 보세요.</p>
+  </div>
+  <div class="chips"><span class="chip on">연구논문</span><span class="chip">활동북</span><span class="chip">발표자료</span><span class="chip">쉬운 말 요약</span></div>
+</body></html>
