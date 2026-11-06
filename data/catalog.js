@@ -116,8 +116,8 @@ window.CATALOG = [
   },
   {
     id: "center-curriculum-study-2020",
-    original: "files/originals/center-curriculum-study-2020.hwp",
-    format: "HWP",
+    original: "files/originals/center-curriculum-study-2020.pdf",
+    format: "PDF",
     firstPage: "assets/firstpages/center-curriculum-study-2020.jpg",
     callNo: "논문-2020-01",
     type: "연구논문",
@@ -126,7 +126,7 @@ window.CATALOG = [
     authors: ["강진숙", "심향은", "김성동", "이은혜"],
     publisher: "발달장애연구 제24권 제1호",
     year: 2020,
-    pages: null,
+    pages: 27,
     keywords: ["발달장애인 평생교육센터", "교육과정", "평생교육", "혼합연구"],
     cover: { theme: "navy", motif: "chart" },
     summary: {
