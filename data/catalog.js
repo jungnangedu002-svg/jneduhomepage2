@@ -12,6 +12,7 @@
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
  *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
  *  original  : 원문 파일 경로 (files/originals/<id>.<확장자>) — 상세 페이지의 ‘원문 내려받기’
+ *              (원문을 공개하지 않는 자료는 이 줄을 빼고 원문 파일도 올리지 않음)
  *  format    : 원문 형식 ("PDF" | "HWP" …)
  *  summary   : 상세 페이지 첫머리에 보이는 요약
  *     oneLine   한 줄 요약
@@ -85,7 +86,6 @@ window.CATALOG = [
   },
   {
     id: "happy-growth-activity-book-2022",
-    original: "files/originals/happy-growth-activity-book-2022.pdf",
     format: "PDF",
     firstPage: "assets/firstpages/happy-growth-activity-book-2022.jpg",
     callNo: "활동북-2022-01",
