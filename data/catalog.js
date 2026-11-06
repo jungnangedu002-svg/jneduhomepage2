@@ -11,6 +11,7 @@
  *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
+ *  coverRatio: (선택) 표지 비율. 기본은 세로형 3 / 4.2 — 정사각형 그림책 등은 "1 / 1.01" 처럼 지정
  *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
  *  original  : 원문 파일 경로 (files/originals/<id>.<확장자>) — 상세 페이지의 ‘원문 내려받기’
  *              (원문을 공개하지 않는 자료는 이 줄을 빼고 원문 파일도 올리지 않음)
@@ -51,6 +52,38 @@ window.CATALOG = [
         { label: "미래설계 영역", value: "8개" },
         { label: "이해도 유의미한 향상", value: "8개 중 7개 영역" },
         { label: "세미나", value: "2026. 8. 13." }
+      ]
+    }
+  },
+  {
+    id: "red-puppy-picturebook-2022",
+    format: "PDF",
+    firstPage: "assets/firstpages/red-puppy-picturebook-2022.jpg",
+    coverRatio: "1040 / 1055",
+    callNo: "그림책-2022-01",
+    type: "그림책",
+    title: "빨강 강아지, 뭐 어때?",
+    subtitle: "모습도 색깔도 다양한 우리들, 뭐 어때?",
+    authors: ["중랑구발달장애인평생교육센터 교육생"],
+    publisher: "중랑구발달장애인평생교육센터",
+    year: 2022,
+    pages: 24,
+    keywords: ["그림책", "다양성", "편견 없는 사회", "문화예술교육", "자기표현"],
+    cover: { theme: "plum", motif: "puppy" },
+    summary: {
+      oneLine:
+        "센터 교육생 29명이 직접 글을 쓰고 그림을 그린 그림책입니다. 빨강 강아지가 거북이, 고래, 노란 비둘기, 뿔 난 말, “멍멍” 우는 사자 같은 개성 있는 친구들을 소개하며 ‘모습도 색깔도 다양하지만 뭐 어때?’라는 메시지를 전합니다.",
+      easy: [
+        "센터 친구들이 직접 글을 쓰고 그림을 그린 그림책이에요.",
+        "빨강 강아지가 자기 친구들을 한 명씩 소개해요.",
+        "노란 비둘기, 멍멍 우는 사자처럼 모두 조금씩 달라요.",
+        "“우리는 여러 가지 색깔, 다양한 모습이에요. 뭐 어때?”"
+      ],
+      stats: [
+        { label: "글·그림 참여", value: "29명" },
+        { label: "분량", value: "24쪽" },
+        { label: "등장하는 친구", value: "10여 동물" },
+        { label: "발행", value: "2022년 12월" }
       ]
     }
   },
