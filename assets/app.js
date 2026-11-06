@@ -164,7 +164,7 @@
       ["발행", b.publisher],
       ["발행연도", b.year],
       ["자료유형", b.type + (b.format ? " (" + b.format + ")" : "")],
-      ["분량", b.pages ? b.pages + "쪽" : ""],
+      ["분량", b.pagesLabel || (b.pages ? b.pages + "쪽" : "")],
       ["청구기호", b.callNo]
     ].filter(function (r) { return r[1]; });
 
