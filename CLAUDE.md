@@ -9,6 +9,7 @@
 ## 구조
 - `index.html` — 화면 뼈대 / `assets/style.css` — 사이트 디자인 / `assets/app.js` — 화면 렌더링
 - `assets/cover.js` — 표지(첫 페이지 이미지, 없으면 그린 표지)
+- `assets/tts.js` — 음성 안내(‘소리로 듣기’ 버튼, 브라우저 내장 음성 합성). 상세 요약에 새 블록 종류를 추가하면 `tts.js`의 SELECTOR에도 넣어 읽히게 할 것
 - `data/catalog.js` — 소장 자료 목록(서지정보, 원문 경로, 한눈에 보기, 쉬운 말 요약, 핵심 숫자)
 - `data/reports.js` — 자료별 자세한 요약 본문(상세 페이지에 모두 표시)
 - `files/originals/<id>.<확장자>` — 원문 파일(내려받기용)
