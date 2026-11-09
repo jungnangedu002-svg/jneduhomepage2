@@ -24,6 +24,38 @@
  */
 window.CATALOG = [
   {
+    id: "christian-welfare-practitioner-2026",
+    format: "PPTX",
+    firstPage: "assets/firstpages/christian-welfare-practitioner-2026.jpg",
+    callNo: "발표-2026-02",
+    type: "발표자료",
+    title: "기독교사회복지실천가의 역할정립을 통한 기독교사회복지의 본질적 가치와 전문성 모색",
+    subtitle: "2026 한국기독교사회복지실천학회 추계학술대회 발표자료",
+    authors: ["박종두"],
+    publisher: "2026 한국기독교사회복지실천학회 추계학술대회 (한국기독교사회복지학회·교회사회사업학회 통합 10주년 기념)",
+    year: 2026,
+    pages: 27,
+    pagesLabel: "슬라이드 27장",
+    keywords: ["기독교사회복지", "실천가", "본질적 가치", "전문성", "슈퍼비전", "강점관점"],
+    cover: { theme: "teal", motif: "heart" },
+    summary: {
+      oneLine:
+        "기독교사회복지의 정체성을 ‘본질적 가치 + 전문성 + 실천가’로 보고, 사회복지법인 성민의 욕구조사 8회(2014~2024)·만족도 조사·사례관리·슈퍼비전 경험을 분석해 기독교사회복지실천가의 6가지 역할과 4가지 과제를 제시한 2026년 추계학술대회 발표자료입니다.",
+      easy: [
+        "교회가 하는 복지가 어떤 마음과 실력으로 이루어져야 하는지 이야기하는 발표예요.",
+        "모든 사람은 장애가 있든 없든, 나이가 많든 적든 소중해요.",
+        "복지 일을 하는 사람은 따뜻한 마음과 전문 실력을 함께 가져야 해요.",
+        "도움을 받기만 하는 사람이 아니라, 함께 살아가는 동료가 되도록 돕자고 해요."
+      ],
+      stats: [
+        { label: "분석한 욕구조사", value: "8회" },
+        { label: "실천가의 역할", value: "6가지" },
+        { label: "제언 과제", value: "4가지" },
+        { label: "학술대회", value: "2026. 10. 31." }
+      ]
+    }
+  },
+  {
     id: "needs-survey-report-2026",
     original: "files/originals/needs-survey-report-2026.pdf",
     format: "PDF",
