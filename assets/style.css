@@ -305,3 +305,52 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 @media (prefers-reduced-motion: reduce) {
   .book__cover { transition: none; }
 }
+
+/* ---------- 음성 안내 (assets/tts.js) ---------- */
+.tts-panel {
+  position: fixed; right: 16px; bottom: 16px; z-index: 50;
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  max-width: calc(100vw - 32px);
+}
+.tts-main {
+  display: inline-flex; align-items: center; gap: 10px;
+  min-height: 56px; padding: 0 22px 0 18px; border: 0; border-radius: 999px;
+  background: #1f3a5f; color: #fff; font: inherit; font-size: 1.05rem; font-weight: 700;
+  box-shadow: 0 6px 20px rgba(20, 30, 50, .35); cursor: pointer;
+}
+.tts-main svg { width: 26px; height: 26px; flex: none; }
+.tts-main:hover { background: #2c5282; }
+.tts-main:focus-visible, .tts-btn:focus-visible { outline: 4px solid #f2b400; outline-offset: 3px; }
+.tts-panel.is-active .tts-main { background: #b8862f; color: #1b1406; }
+.tts-controls {
+  display: flex; gap: 6px; padding: 6px; border-radius: 999px;
+  background: #fffdf8; border: 2px solid #1f3a5f; box-shadow: 0 6px 20px rgba(20, 30, 50, .2);
+}
+.tts-controls[hidden] { display: none; }
+.tts-btn {
+  min-width: 48px; height: 48px; padding: 0 12px; border: 0; border-radius: 999px;
+  background: #efe6d3; color: #1f3a5f; font: inherit; font-size: .9rem; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; gap: 4px;
+}
+.tts-btn svg { width: 22px; height: 22px; }
+.tts-btn:hover { background: #e2d8c3; }
+.tts-rate b { font-weight: 800; }
+.tts-status { margin: 0; max-width: 320px; font-size: .85rem; color: #fff; background: rgba(20, 30, 50, .88); border-radius: 10px; padding: 6px 12px; }
+.tts-status:empty { display: none; }
+.tts-reading {
+  outline: 4px solid #f2b400 !important; outline-offset: 4px; border-radius: 6px;
+  background-color: rgba(242, 180, 0, .16) !important;
+  scroll-margin: 120px;
+}
+.biblio tr.tts-reading, .rtable.tts-reading { outline: none !important; }
+.biblio tr.tts-reading th, .biblio tr.tts-reading td { background: rgba(242, 180, 0, .28) !important; box-shadow: inset 0 3px 0 #f2b400, inset 0 -3px 0 #f2b400; }
+.rtable.tts-reading { box-shadow: 0 0 0 4px #f2b400; }
+.btn--listen { background: #b8862f; color: #1b1406; border-color: #b8862f; cursor: pointer; font: inherit; font-weight: 700; }
+.btn--listen[aria-pressed="true"] { background: #1f3a5f; color: #fff; border-color: #1f3a5f; }
+.footer { padding-bottom: 96px; }
+kbd { font: inherit; font-size: .85em; padding: 1px 6px; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 5px; background: var(--card); }
+@media (max-width: 560px) {
+  .tts-main { min-height: 52px; padding: 0 18px 0 14px; font-size: 1rem; }
+  .tts-btn { min-width: 44px; height: 44px; padding: 0 10px; }
+}
+@media (prefers-reduced-motion: reduce) { .tts-reading { transition: none; } }

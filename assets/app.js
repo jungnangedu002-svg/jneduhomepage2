@@ -187,7 +187,11 @@
       '<article class="detail">' +
       '<aside class="detail__aside">' + cover(b, true) +
       '<div class="callno">청구기호 <b>' + esc(b.callNo) + "</b></div>" +
-      '<div class="btns">' + dlBtn + '<a class="btn btn--ghost" href="#/list">← 목록으로</a></div>' +
+      '<div class="btns">' +
+      '<button type="button" class="btn btn--listen" data-tts-start aria-pressed="false">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>' +
+      "<span>이 자료 소리로 듣기</span></button>" +
+      dlBtn + '<a class="btn btn--ghost" href="#/list">← 목록으로</a></div>' +
       (chapters.length ? '<nav class="side-toc" aria-label="요약 차례"><b>차례</b><ol>' +
         '<li><a href="#" data-jump="sum-overview">한눈에 보기</a></li>' +
         chapters.map(function (c, i) { return '<li><a href="#" data-jump="sum-ch' + (i + 1) + '">' + esc(c.h) + "</a></li>"; }).join("") +
@@ -249,7 +253,9 @@
       "<li><b>표지 누르기</b><br>책 표지를 누르면 서지정보와 요약이 한 화면에 열려요.</li>" +
       "<li><b>요약 읽기</b><br>‘한눈에 보기’와 ‘쉬운 말 요약’을 먼저 읽고, 아래로 내려 자세한 요약을 읽어요.</li>" +
       "<li><b>원문 보기</b><br>‘원문 내려받기’ 버튼으로 원래 파일을 받을 수 있어요.</li>" +
+      "<li><b>소리로 듣기</b><br>화면 오른쪽 아래 ‘소리로 듣기’ 버튼을 누르면 지금 화면의 내용을 읽어 줘요. 읽는 부분은 노란색으로 표시돼요.</li>" +
       "</ol>" +
+      "<p><b>음성 안내 사용법</b> — 이전·다음 문단 버튼으로 듣고 싶은 곳으로 옮길 수 있고, ‘속도’ 버튼으로 느리게·보통·빠르게를 고를 수 있어요. 키보드로는 <kbd>Alt</kbd>+<kbd>R</kbd>로 듣기·일시정지, <kbd>Esc</kbd>로 멈춤을 할 수 있어요. 컴퓨터나 휴대폰에 화면낭독 프로그램(센스리더, 보이스오버, 톡백 등)이 있다면 그 프로그램으로도 모든 내용을 읽을 수 있어요.</p>" +
       "<p>자료 문의: 중랑구발달장애인평생교육센터 · T. 02-6953-0704</p>" +
       "</div></section>";
   }
