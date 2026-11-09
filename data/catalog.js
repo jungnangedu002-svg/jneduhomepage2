@@ -24,6 +24,38 @@
  */
 window.CATALOG = [
   {
+    id: "needs-survey-report-2026",
+    original: "files/originals/needs-survey-report-2026.pdf",
+    format: "PDF",
+    firstPage: "assets/firstpages/needs-survey-report-2026.jpg",
+    callNo: "보고서-2026-01",
+    type: "보고서",
+    title: "성인발달장애인의 평생교육 실천을 위한 욕구조사 보고서",
+    subtitle: "평생과정 8개 영역의 중요도·희망·스스로 할 수 있음",
+    authors: ["중랑구발달장애인평생교육센터"],
+    publisher: "중랑구발달장애인평생교육센터",
+    year: 2026,
+    pages: 94,
+    keywords: ["욕구조사", "평생과정설계", "IPA", "자기결정", "자립생활", "발달장애인"],
+    cover: { theme: "slate", motif: "chart" },
+    summary: {
+      oneLine:
+        "센터 교육생 26명에게 평생과정 8개 영역 24개 항목의 ‘중요도·희망·스스로 할 수 있음’을 물어 대응표본 t검정과 IPA로 분석하고, 결혼·법률·주거·직업을 핵심 우선지원 영역으로 하는 8가지 운영 방향을 제언한 2026년 욕구조사 보고서입니다.",
+      easy: [
+        "센터 친구 26명에게 무엇이 중요하고, 무엇을 배우고 싶고, 무엇을 혼자 할 수 있는지 물어봤어요.",
+        "건강, 문화, 가족, 공부, 돈, 일, 집, 법 8가지를 물어봤어요.",
+        "가족, 법, 집, 일은 모두 중요하고 배우고 싶다고 했어요.",
+        "요리와 돈 관리는 특히 배우고 싶어 했어요. 센터는 이 결과로 수업을 더 알맞게 만들 거예요."
+      ],
+      stats: [
+        { label: "조사 참여(회수율 100%)", value: "26명" },
+        { label: "평생과정 영역·항목", value: "8개 · 24개" },
+        { label: "희망≠중요 유의미한 항목", value: "4개" },
+        { label: "운영 제언", value: "8가지" }
+      ]
+    }
+  },
+  {
     id: "future-design-academy-2026",
     format: "PPTX",
     firstPage: "assets/firstpages/future-design-academy-2026.jpg",
