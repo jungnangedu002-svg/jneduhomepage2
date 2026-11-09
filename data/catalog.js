@@ -88,6 +88,38 @@ window.CATALOG = [
     }
   },
   {
+    id: "strength-curriculum-seminar-2023",
+    format: "PDF",
+    firstPage: "assets/firstpages/strength-curriculum-seminar-2023.jpg",
+    callNo: "발표-2023-01",
+    type: "발표자료",
+    title: "최중증발달장애인의 강점 발굴과 교육과정 운영",
+    subtitle: "“어떻게 실천할 것인가?” — 사회복지법인 성민 창립 20주년 기념 세미나 「평범한 일상, 평범한 미래」",
+    authors: ["강진숙"],
+    publisher: "사회복지법인 성민 창립 20주년 · 성민복지관 개관 14주년 기념 세미나",
+    year: 2023,
+    pages: 47,
+    pagesLabel: "슬라이드 47장",
+    keywords: ["최중증발달장애인", "강점관점", "교육과정", "사람중심계획", "도전적 행동", "발달장애인"],
+    cover: { theme: "teal", motif: "heart" },
+    summary: {
+      oneLine:
+        "발달장애인평생교육센터의 설립 배경과 운영 현황을 소개하고, 최중증발달장애인을 ‘문제’가 아닌 ‘강점’으로 바라보며 교육과정을 운영하는 방법과 실제 변화 사례를 담은 2023년 세미나 발표자료입니다.",
+      easy: [
+        "발달장애인 친구들의 ‘못하는 점’보다 ‘잘하는 점’을 먼저 찾자는 이야기예요.",
+        "센터는 처음 상담부터 마지막 평가까지 9단계로 한 사람 한 사람을 도와요.",
+        "그림 일정표처럼 눈으로 볼 수 있게 알려 주면 더 쉽게 알 수 있어요.",
+        "조금씩 연습해서 소리 내어 말하고, 웃는 날이 많아진 친구들도 있어요."
+      ],
+      stats: [
+        { label: "운영 과정", value: "9단계" },
+        { label: "동대문·중랑 교육생(2023.7)", value: "55명" },
+        { label: "변화 사례", value: "3명" },
+        { label: "세미나", value: "2023. 8. 10." }
+      ]
+    }
+  },
+  {
     id: "red-puppy-picturebook-2022",
     format: "PDF",
     firstPage: "assets/firstpages/red-puppy-picturebook-2022.jpg",
