@@ -103,7 +103,7 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 .more:hover { text-decoration: underline; }
 
 /* ---------- bookshelf ---------- */
-.shelf { position: relative; padding: 26px 22px 0; background: linear-gradient(var(--paper-2), var(--paper)); border-radius: var(--radius) var(--radius) 0 0; }
+.shelf { position: relative; padding: 26px 22px 22px; background: linear-gradient(var(--paper-2), var(--paper)); border-radius: var(--radius) var(--radius) 0 0; }
 .shelf__row { display: flex; gap: 26px; overflow-x: auto; padding: 4px 4px 14px; scroll-snap-type: x mandatory; align-items: flex-end; }
 /* 옆으로 넘기는 슬라이드 바 — 크고 밝게 (크롬·엣지·안드로이드) */
 .shelf__row::-webkit-scrollbar { height: 18px; }
@@ -304,7 +304,7 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
   .topnav a { padding: 6px 10px; font-size: .88rem; }
   .stats-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
-  .shelf { padding: 20px 12px 0; }
+  .shelf { padding: 20px 12px 18px; }
   .shelf .book { flex-basis: 140px; }
   .shelf__row::-webkit-scrollbar { height: 16px; }
   .panel { padding: 18px 16px; }
