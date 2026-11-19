@@ -24,6 +24,70 @@
  */
 window.CATALOG = [
   {
+    id: "self-perception-independence-2026",
+    original: "files/originals/self-perception-independence-2026.pdf",
+    format: "PDF",
+    firstPage: "assets/firstpages/self-perception-independence-2026.jpg",
+    callNo: "논문-2026-01",
+    type: "연구논문",
+    title: "성인발달장애인이 지각한 자신에 관한 생각이 자립의지에 미치는 영향",
+    subtitle: "미래계획의 매개효과와 일상생활능력 및 인지능력의 조절효과를 중심으로",
+    authors: ["박종두", "남영란"],
+    publisher: "미래설계복지실천연구 제1권 제1호, pp.7–31",
+    year: 2026,
+    pages: 25,
+    keywords: ["성인발달장애인", "자신에 관한 생각", "자립의지", "미래설계", "일상생활능력", "인지능력"],
+    cover: { theme: "forest", motif: "sprout" },
+    summary: {
+      oneLine:
+        "2024년 발달장애인 일과 삶 실태조사 패널의 성인발달장애인 894명을 분석해, 자신을 긍정적으로 생각할수록 자립의지가 높고(β=.167), 미래계획이 그 관계를 부분매개하며, 일상생활능력과 인지능력이 그 관계를 조절함을 밝힌 연구입니다.",
+      easy: [
+        "나를 좋게 생각할수록 혼자 살아 보고 싶은 마음(자립의지)이 커져요.",
+        "돈, 집, 법 같은 미래 계획을 세우면 그 마음이 더 커져요.",
+        "옷 입기, 장보기 같은 생활 기술과 읽기·셈하기 같은 능력이 좋을수록 효과가 더 커요.",
+        "그래서 칭찬과 성공 경험, 미래 계획 돕기, 생활 연습을 함께 해야 해요."
+      ],
+      stats: [
+        { label: "분석 대상", value: "894명" },
+        { label: "자신에 관한 생각 → 자립의지", value: "β = .167" },
+        { label: "미래계획 → 자립의지", value: "β = .245" },
+        { label: "간접효과(부분매개)", value: ".070" }
+      ]
+    }
+  },
+  {
+    id: "social-worker-job-satisfaction-2026",
+    original: "files/originals/social-worker-job-satisfaction-2026.pdf",
+    format: "PDF",
+    firstPage: "assets/firstpages/social-worker-job-satisfaction-2026.jpg",
+    callNo: "논문-2026-02",
+    type: "연구논문",
+    title: "사회복지사의 역량지원과 처우 및 심리안녕이 업무만족에 미치는 영향",
+    subtitle: "2023년 한국사회복지관협회 조사자료 3,568명 분석",
+    authors: ["이광용", "임재택", "황주찬", "박종두"],
+    publisher: "미래설계복지실천연구 제1권 제1호, pp.33–59",
+    year: 2026,
+    pages: 26,
+    keywords: ["사회복지사", "역량지원", "처우", "심리안녕", "업무만족", "슈퍼비전"],
+    cover: { theme: "navy", motif: "chart" },
+    summary: {
+      oneLine:
+        "전국 사회복지사 3,568명의 2023년 조사자료를 위계적 회귀분석한 결과, 업무만족은 연령·경력보다 보수(β=.328)·스트레스(β=-.300)·경력개발지원(β=.253) 같은 처우·심리안녕·역량지원의 영향을 크게 받았으며(설명력 60.0%), 보수·건강·스트레스 관리와 슈퍼비전·자문·경력개발 지원 강화를 제언한 연구입니다.",
+      easy: [
+        "전국 사회복지사 3,568명이 일에 얼마나 만족하는지 살펴봤어요.",
+        "월급이 알맞다고 느낄수록, 스트레스가 적을수록 일이 더 만족스러워요.",
+        "배우고 성장하도록 돕는 지원(경력개발, 슈퍼비전, 자문)도 큰 도움이 돼요.",
+        "그래서 일하는 사람의 몸과 마음을 챙기고, 성장을 도와야 해요."
+      ],
+      stats: [
+        { label: "분석 대상", value: "3,568명" },
+        { label: "업무만족 설명력", value: "60.0%" },
+        { label: "보수의 영향", value: "β = .328" },
+        { label: "스트레스의 영향", value: "β = −.300" }
+      ]
+    }
+  },
+  {
     id: "christian-welfare-practitioner-2026",
     format: "PPTX",
     firstPage: "assets/firstpages/christian-welfare-practitioner-2026.jpg",
