@@ -6,7 +6,7 @@
  *
  *  id        : 영문 소문자-하이픈 고유값 (주소창 #/book/<id> 에 사용)
  *  callNo    : 청구기호  [유형코드]-[발행연도]-[일련번호]
- *  type      : "연구논문" | "주요 운영자료" | "활동북" | "발표자료" | "그림책" 등
+ *  type      : "연구논문" | "주요 운영자료" | "발표자료" 등
  *  pages     : 쪽수(숫자) / pagesLabel: 쪽수 대신 보여 줄 말(선택, 예: "슬라이드 23장")
  *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
@@ -220,8 +220,8 @@ window.CATALOG = [
     format: "PDF",
     firstPage: "assets/firstpages/red-puppy-picturebook-2022.jpg",
     coverRatio: "1040 / 1055",
-    callNo: "그림책-2022-01",
-    type: "그림책",
+    callNo: "운영자료-2022-02",
+    type: "주요 운영자료",
     title: "빨강 강아지, 뭐 어때?",
     subtitle: "모습도 색깔도 다양한 우리들, 뭐 어때?",
     authors: ["중랑구발달장애인평생교육센터 교육생"],
@@ -314,8 +314,8 @@ window.CATALOG = [
     id: "happy-growth-activity-book-2022",
     format: "PDF",
     firstPage: "assets/firstpages/happy-growth-activity-book-2022.jpg",
-    callNo: "활동북-2022-01",
-    type: "활동북",
+    callNo: "운영자료-2022-01",
+    type: "주요 운영자료",
     title: "우리들의 행복성장교실",
     subtitle: "평생과정설계 아카데미 활동북 쉬운버전 1탄",
     authors: ["중랑구발달장애인평생교육센터"],

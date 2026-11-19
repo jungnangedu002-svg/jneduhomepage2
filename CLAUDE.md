@@ -31,8 +31,8 @@
 4. `data/catalog.js` 배열에 항목 추가 (필드 설명은 파일 상단 주석)
    - `original`: `files/originals/<id>.<확장자>`, `format`: `"PDF"`/`"HWP"`/`"PPTX"`, `firstPage`: `assets/firstpages/<id>.jpg`
    - 슬라이드 자료는 `pagesLabel: "슬라이드 N장"`, 정사각형에 가까운 표지(그림책 등)는 `coverRatio: "가로 / 세로"`
-   - `type`(분류): `연구논문` / `주요 운영자료`(욕구조사·운영 보고서 등) / `활동북` / `발표자료` / `그림책`
-   - `callNo`: `논문-YYYY-NN` / `활동북-YYYY-NN` / `발표-YYYY-NN` / `그림책-YYYY-NN` / `운영자료-YYYY-NN` … 같은 유형·연도 안에서 일련번호 증가
+   - `type`(분류): `연구논문` / `주요 운영자료`(욕구조사·운영 보고서, 활동북, 그림책 등 센터가 만든 자료) / `발표자료`
+   - `callNo`: `논문-YYYY-NN` / `발표-YYYY-NN` / `운영자료-YYYY-NN` … 같은 유형·연도 안에서 발행 순서대로 일련번호 증가
    - `cover.theme`: 표지 유형 띠 색 — 기존 자료와 겹치지 않게 (navy·forest·crimson·amber·plum·teal·slate)
    - `cover.motif`: 첫 페이지 이미지가 없을 때 대신 그리는 표지 그림
    - `summary`: `oneLine`(대상·방법·핵심 결과), `easy`(쉬운 말 3~4문장, “~해요” 체), `stats`(핵심 숫자 2~4개)
