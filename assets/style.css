@@ -258,6 +258,7 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 .rtable caption { caption-side: top; text-align: left; font-weight: 700; font-size: .9rem; color: var(--ink-2); padding: 10px 12px 6px; background: var(--card); }
 .rtable th { background: var(--navy); color: var(--paper); text-align: left; font-weight: 600; padding: 8px 12px; white-space: nowrap; }
 .rtable td { padding: 8px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+.rtable td, .rtable th { overflow-wrap: break-word; }
 .rtable td:first-child { font-weight: 600; white-space: nowrap; }
 .rtable tbody tr:nth-child(even) td { background: var(--paper); }
 .rnote { font-size: .84rem; color: var(--ink-3); margin-top: -6px !important; }

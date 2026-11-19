@@ -120,6 +120,37 @@ window.CATALOG = [
     }
   },
   {
+    id: "operation-plan-2026",
+    format: "PDF",
+    firstPage: "assets/firstpages/operation-plan-2026.jpg",
+    callNo: "운영자료-2026-02",
+    type: "주요 운영자료",
+    title: "2026년 기관운영계획서",
+    subtitle: "중랑구발달장애인평생교육센터 2026년 기관 운영계획과 세부사업계획",
+    authors: ["중랑구발달장애인평생교육센터"],
+    publisher: "중랑구발달장애인평생교육센터",
+    year: 2026,
+    pages: 180,
+    keywords: ["기관운영계획", "세부사업계획", "개인별지원계획", "자립생활", "평생교육", "발달장애인"],
+    cover: { theme: "slate", motif: "book" },
+    summary: {
+      oneLine:
+        "교육생 29명·종사자 14명이 함께하는 중랑구발달장애인평생교육센터의 2026년 기관 운영 방향(사명·비전·조직·이용자)과 7개 사업 영역 53개 사업의 세부계획(목적·산출목표·일정·평가)을 담은 180쪽 운영계획서입니다.",
+      easy: [
+        "센터가 2026년 한 해 동안 무엇을 할지 적어 둔 계획서예요.",
+        "밥 먹기, 건강, 취미, 공부, 일 연습 등 반마다 하는 활동이 정리되어 있어요.",
+        "혼자 사는 연습, 미래 준비 수업, 자치회의 같은 활동도 있어요.",
+        "가족 상담, 홍보, 선생님 공부, 새로운 사업 계획도 들어 있어요."
+      ],
+      stats: [
+        { label: "사업 수", value: "53개" },
+        { label: "교육생(2026.1.1.)", value: "29명" },
+        { label: "종사자", value: "14명" },
+        { label: "총 예산", value: "954,000천 원" }
+      ]
+    }
+  },
+  {
     id: "needs-survey-report-2026",
     original: "files/originals/needs-survey-report-2026.pdf",
     format: "PDF",
