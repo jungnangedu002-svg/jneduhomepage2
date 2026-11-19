@@ -11,7 +11,8 @@
  *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
  *              motif  → basketball | chart | puppy | sprout | book | heart | puzzle | music
- *  coverRatio: (선택) 표지 비율. 기본은 세로형 3 / 4.2 — 정사각형 그림책 등은 "1 / 1.01" 처럼 지정
+ *  coverRatio: (선택) 표지 비율. 기본은 세로형 3 / 4.2 (서가의 표지 높이를 맞추려면 쓰지 않는 것을 권장)
+ *  coverBg   : (선택) 세로형이 아닌 표지(정사각형 그림책 등)를 잘리지 않게 세로 틀 안에 넣고, 남는 위·아래를 이 색으로 채움
  *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
  *  original  : 원문 파일 경로 (files/originals/<id>.<확장자>) — 상세 페이지의 ‘원문 내려받기’
  *              (원문을 공개하지 않는 자료는 이 줄을 빼고 원문 파일도 올리지 않음)
@@ -250,7 +251,7 @@ window.CATALOG = [
     id: "red-puppy-picturebook-2022",
     format: "PDF",
     firstPage: "assets/firstpages/red-puppy-picturebook-2022.jpg",
-    coverRatio: "1040 / 1055",
+    coverBg: "#9fdcde",
     callNo: "운영자료-2022-02",
     type: "주요 운영자료",
     title: "빨강 강아지, 뭐 어때?",

@@ -103,8 +103,8 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 .more:hover { text-decoration: underline; }
 
 /* ---------- bookshelf ---------- */
-.shelf { position: relative; padding: 26px 22px 22px; background: linear-gradient(var(--paper-2), var(--paper)); border-radius: var(--radius) var(--radius) 0 0; }
-.shelf__row { display: flex; gap: 26px; overflow-x: auto; padding: 4px 4px 14px; scroll-snap-type: x mandatory; align-items: flex-end; }
+.shelf { position: relative; padding: 10px 22px 22px; background: linear-gradient(var(--paper-2), var(--paper)); border-radius: var(--radius) var(--radius) 0 0; }
+.shelf__row { display: flex; gap: 26px; overflow-x: auto; padding: 20px 4px 14px; scroll-snap-type: x mandatory; align-items: flex-end; }
 /* 옆으로 넘기는 슬라이드 바 — 크고 밝게 (크롬·엣지·안드로이드) */
 .shelf__row::-webkit-scrollbar { height: 18px; }
 .shelf__row::-webkit-scrollbar-track { background: #fff3c4; border: 1px solid #f2d27a; border-radius: 999px; margin: 0 4px; }
@@ -116,15 +116,19 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
   .shelf__row { scrollbar-color: #f2b400 #fff3c4; scrollbar-width: auto; }
 }
 .shelf__board { height: 18px; background: linear-gradient(var(--wood), var(--wood-dark)); border-radius: 3px; box-shadow: 0 8px 14px rgba(60,35,10,.25); margin: 0 -10px; position: relative; z-index: 1; }
-.shelf .book { flex: 0 0 170px; scroll-snap-align: start; margin-bottom: -1px; }
+.shelf .book { flex: 0 0 170px; min-width: 0; scroll-snap-align: start; margin-bottom: -1px; }
+.book { min-width: 0; }
 
 /* ---------- book (cover link) ---------- */
 .book { display: block; text-decoration: none; color: inherit; }
-.book__cover { transition: transform .25s ease, box-shadow .25s ease; }
-.book:hover .book__cover, .book:focus-visible .book__cover { transform: translateY(-8px) rotate(-1deg); box-shadow: 10px 18px 26px rgba(40,25,5,.32); }
+.book__cover { transition: transform .28s cubic-bezier(.2,.8,.3,1), box-shadow .28s ease; will-change: transform; }
+/* 마우스를 올리거나 키보드로 고르면 책이 위로 살짝 올라옴 */
+.book:hover .book__cover, .book:focus-visible .book__cover { transform: translateY(-12px); box-shadow: 0 0 0 1px rgba(60,40,10,.12), 6px 22px 30px rgba(40,25,5,.32); }
+.book:active .book__cover { transform: translateY(-6px); }
+/* 글 영역 높이를 고정해 모든 표지가 같은 높이에 놓이게 함: 제목 2줄 + 저자·연도 1줄 */
 .book__meta { padding: 10px 2px 14px; }
-.book__meta h3 { font-size: .95rem; line-height: 1.45; margin: 0 0 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.book__meta p { margin: 0; font-size: .8rem; color: var(--ink-3); }
+.book__meta h3 { font-size: .95rem; line-height: 1.45; height: 2.9em; margin: 0 0 2px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.book__meta p { margin: 0; font-size: .8rem; line-height: 1.6; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- COVER ---------- */
 .cover {
@@ -304,7 +308,7 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
   .topnav a { padding: 6px 10px; font-size: .88rem; }
   .stats-row { grid-template-columns: repeat(2, minmax(0,1fr)); }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
-  .shelf { padding: 20px 12px 18px; }
+  .shelf { padding: 6px 12px 18px; }
   .shelf .book { flex-basis: 140px; }
   .shelf__row::-webkit-scrollbar { height: 16px; }
   .panel { padding: 18px 16px; }

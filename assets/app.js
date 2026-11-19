@@ -32,7 +32,7 @@
 
   function bookCard(b) {
     return (
-      '<a class="book" href="#/book/' + encodeURIComponent(b.id) + '">' + cover(b) +
+      '<a class="book" href="#/book/' + encodeURIComponent(b.id) + '" title="' + esc(b.title + " — " + authorsShort(b.authors) + " · " + b.year) + '">' + cover(b) +
       '<div class="book__meta"><h3>' + esc(b.title) + "</h3><p>" + esc(authorsShort(b.authors)) +
       " · " + esc(b.year) + "</p></div></a>"
     );

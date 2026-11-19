@@ -59,8 +59,9 @@
     if (b.firstPage) {
       return (
         '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover"' +
-        (b.coverRatio ? ' style="aspect-ratio: ' + esc(b.coverRatio) + '"' : "") + ">" +
-        '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" decoding="async">' +
+        ((b.coverRatio || b.coverBg) ? ' style="' + (b.coverRatio ? "aspect-ratio: " + esc(b.coverRatio) + "; " : "") + (b.coverBg ? "background: " + esc(b.coverBg) : "") + '"' : "") + ">" +
+        '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" decoding="async"' +
+        (b.coverBg ? ' style="object-fit: contain; object-position: center"' : "") + ">" +
         '<span class="cover__tag">' + esc(b.type) + "</span></div>"
       );
     }
