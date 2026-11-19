@@ -6,7 +6,7 @@
  *
  *  id        : 영문 소문자-하이픈 고유값 (주소창 #/book/<id> 에 사용)
  *  callNo    : 청구기호  [유형코드]-[발행연도]-[일련번호]
- *  type      : "연구논문" | "교육자료" | "보고서" | "활동북" | "발표자료" 등
+ *  type      : "연구논문" | "주요 운영자료" | "활동북" | "발표자료" | "그림책" 등
  *  pages     : 쪽수(숫자) / pagesLabel: 쪽수 대신 보여 줄 말(선택, 예: "슬라이드 23장")
  *  cover     : { theme: 색상테마, motif: 표지 그림 }  (theme=표지 띠 색, motif=첫 페이지 이미지가 없을 때 그리는 표지)
  *              theme  → navy | forest | crimson | amber | plum | teal | slate
@@ -124,8 +124,8 @@ window.CATALOG = [
     original: "files/originals/needs-survey-report-2026.pdf",
     format: "PDF",
     firstPage: "assets/firstpages/needs-survey-report-2026.jpg",
-    callNo: "보고서-2026-01",
-    type: "보고서",
+    callNo: "운영자료-2026-01",
+    type: "주요 운영자료",
     title: "성인발달장애인의 평생교육 실천을 위한 욕구조사 보고서",
     subtitle: "평생과정 8개 영역의 중요도·희망·스스로 할 수 있음",
     authors: ["중랑구발달장애인평생교육센터"],
