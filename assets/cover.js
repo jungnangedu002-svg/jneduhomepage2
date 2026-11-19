@@ -52,6 +52,12 @@
       '<path d="M38 72V24l40-8v48"/><circle cx="30" cy="72" r="9"/><circle cx="70" cy="64" r="9"/><path d="M38 36l40-8" opacity=".7"/></svg>'
   };
 
+  // 넓은 표지에서도 유형 띠 글자 크기가 다른 표지(세로형 3:4.2)와 같도록 보정
+  function tagScale(r) {
+    var p = String(r).split("/"), v = parseFloat(p[0]) / parseFloat(p[1] || 1);
+    return isFinite(v) && v > 0 ? Math.round((3 / 4.2) / v * 1000) / 1000 : 1;
+  }
+
   function cover(b, lg) {
     var c = b.cover || {};
     var theme = c.theme || "navy";
@@ -59,7 +65,7 @@
     if (b.firstPage) {
       return (
         '<div class="cover cover--page t-' + esc(theme) + (lg ? " cover--lg" : "") + ' book__cover"' +
-        ((b.coverRatio || b.coverBg) ? ' style="' + (b.coverRatio ? "aspect-ratio: " + esc(b.coverRatio) + "; " : "") + (b.coverBg ? "background: " + esc(b.coverBg) : "") + '"' : "") + ">" +
+        ((b.coverRatio || b.coverBg) ? ' style="' + (b.coverRatio ? "aspect-ratio: " + esc(b.coverRatio) + "; --tag-scale: " + tagScale(b.coverRatio) + "; " : "") + (b.coverBg ? "background: " + esc(b.coverBg) : "") + '"' : "") + ">" +
         '<img src="' + esc(b.firstPage) + '" alt="' + esc(b.title) + ' 원문 첫 페이지" decoding="async"' +
         (b.coverBg ? ' style="object-fit: contain; object-position: center"' : "") + ">" +
         '<span class="cover__tag">' + esc(b.type) + "</span></div>"
