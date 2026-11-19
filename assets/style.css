@@ -104,9 +104,17 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
 
 /* ---------- bookshelf ---------- */
 .shelf { position: relative; padding: 26px 22px 0; background: linear-gradient(var(--paper-2), var(--paper)); border-radius: var(--radius) var(--radius) 0 0; }
-.shelf__row { display: flex; gap: 26px; overflow-x: auto; padding: 4px 4px 0; scroll-snap-type: x mandatory; align-items: flex-end; }
-.shelf__row::-webkit-scrollbar { height: 8px; }
-.shelf__row::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+.shelf__row { display: flex; gap: 26px; overflow-x: auto; padding: 4px 4px 14px; scroll-snap-type: x mandatory; align-items: flex-end; }
+/* 옆으로 넘기는 슬라이드 바 — 크고 밝게 (크롬·엣지·안드로이드) */
+.shelf__row::-webkit-scrollbar { height: 18px; }
+.shelf__row::-webkit-scrollbar-track { background: #fff3c4; border: 1px solid #f2d27a; border-radius: 999px; margin: 0 4px; }
+.shelf__row::-webkit-scrollbar-thumb { background: #f2b400; border: 3px solid #fff3c4; border-radius: 999px; min-width: 60px; }
+.shelf__row::-webkit-scrollbar-thumb:hover { background: #ffc61a; }
+.shelf__row::-webkit-scrollbar-thumb:active { background: #e0a500; }
+/* 파이어폭스 (두께는 브라우저 기본값) */
+@supports (-moz-appearance: none) {
+  .shelf__row { scrollbar-color: #f2b400 #fff3c4; scrollbar-width: auto; }
+}
 .shelf__board { height: 18px; background: linear-gradient(var(--wood), var(--wood-dark)); border-radius: 3px; box-shadow: 0 8px 14px rgba(60,35,10,.25); margin: 0 -10px; position: relative; z-index: 1; }
 .shelf .book { flex: 0 0 170px; scroll-snap-align: start; margin-bottom: -1px; }
 
@@ -298,6 +306,7 @@ main, main:focus, main:focus-visible { outline: none; min-height: 60vh; }
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 16px; }
   .shelf { padding: 20px 12px 0; }
   .shelf .book { flex-basis: 140px; }
+  .shelf__row::-webkit-scrollbar { height: 16px; }
   .panel { padding: 18px 16px; }
   .toolbar input[type="search"] { min-width: 0; flex: 1 1 100%; }
   .biblio th { width: 78px; padding: 8px 10px; }
