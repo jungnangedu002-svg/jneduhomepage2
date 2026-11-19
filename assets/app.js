@@ -30,9 +30,17 @@
 
   var cover = window.JNCover.cover;
 
+  // 원본 표지 비율(가로/세로) — 서가에서 너비 계산에 사용
+  function ratio(b) {
+    if (!b.coverRatio) return 0;
+    var p = String(b.coverRatio).split("/");
+    var r = parseFloat(p[0]) / parseFloat(p[1] || 1);
+    return isFinite(r) && r > 0 ? Math.round(r * 1000) / 1000 : 0;
+  }
+
   function bookCard(b) {
     return (
-      '<a class="book" href="#/book/' + encodeURIComponent(b.id) + '" title="' + esc(b.title + " — " + authorsShort(b.authors) + " · " + b.year) + '">' + cover(b) +
+      '<a class="book' + (ratio(b) ? ' book--ratio" style="--r: ' + ratio(b) : "") + '" href="#/book/' + encodeURIComponent(b.id) + '" title="' + esc(b.title + " — " + authorsShort(b.authors) + " · " + b.year) + '">' + cover(b) +
       '<div class="book__meta"><h3>' + esc(b.title) + "</h3><p>" + esc(authorsShort(b.authors)) +
       " · " + esc(b.year) + "</p></div></a>"
     );
