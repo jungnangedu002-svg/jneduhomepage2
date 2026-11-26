@@ -27,7 +27,11 @@
 window.CATALOG = [
   {
     id: "self-perception-independence-2026",
-    original: "files/originals/self-perception-independence-2026.pdf",
+    external: {
+      url: "https://www.kafw.co.kr/",
+      label: "한국미래설계복지실천학회로 이동하기",
+      note: "원문은 한국미래설계복지실천학회 사이트에서 내려받거나 요청해 주세요."
+    },
     format: "PDF",
     firstPage: "assets/firstpages/self-perception-independence-2026.jpg",
     callNo: "논문-2026-01",
