@@ -16,6 +16,7 @@
  *  firstPage : 원문 첫 페이지 이미지 (assets/firstpages/<id>.jpg) — 사이트 표지와 요약 PDF 첫 장에 사용
  *  original  : 원문 파일 경로 (files/originals/<id>.<확장자>) — 상세 페이지의 ‘원문 내려받기’
  *              (원문을 공개하지 않는 자료는 이 줄을 빼고 원문 파일도 올리지 않음)
+ *  external  : (선택) 원문 대신 외부 사이트로 안내 { url, label, note } — 버튼과 그 아래 안내 문구로 표시
  *  format    : 원문 형식 ("PDF" | "HWP" …)
  *  summary   : 상세 페이지 첫머리에 보이는 요약
  *     oneLine   한 줄 요약
@@ -58,7 +59,11 @@ window.CATALOG = [
   },
   {
     id: "social-worker-job-satisfaction-2026",
-    original: "files/originals/social-worker-job-satisfaction-2026.pdf",
+    external: {
+      url: "https://www.kafw.co.kr/",
+      label: "한국미래설계복지실천학회로 이동하기",
+      note: "원문은 한국미래설계복지실천학회 사이트에서 내려받거나 요청해 주세요."
+    },
     format: "PDF",
     firstPage: "assets/firstpages/social-worker-job-satisfaction-2026.jpg",
     callNo: "논문-2026-02",

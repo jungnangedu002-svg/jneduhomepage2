@@ -184,7 +184,12 @@
     var dlIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11m0 0l-4-4m4 4l4-4M5 19h14"/></svg>';
     var ext = (b.original || "").split(".").pop();
     var dlName = b.title + (ext ? "." + ext : "");
-    var dlBtn = b.original
+    var extIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>';
+    var dlBtn = b.external
+      ? '<a class="btn btn--primary" href="' + esc(b.external.url) + '" target="_blank" rel="noopener noreferrer">' + extIcon + esc(b.external.label || "원문 사이트로 이동하기") +
+        '<span class="sr-only"> (새 창으로 열림)</span></a>' +
+        (b.external.note ? '<p class="ext-note">' + esc(b.external.note) + "</p>" : "")
+      : b.original
       ? '<a class="btn btn--primary" href="' + esc(b.original) + '" download="' + esc(dlName) + '">' + dlIcon + "원문 내려받기 (" + esc(b.format || ext.toUpperCase()) + ")</a>"
       : '<p class="no-download">이 자료는 원문을 내려받을 수 없어요.</p>';
 
@@ -231,8 +236,8 @@
           (i + 1 < 10 ? "0" : "") + (i + 1) + "</span>" + esc(c.h) + "</h2>" + c.blocks.map(blockHtml).join("") + "</section>";
       }).join("") +
 
-      (b.original ? '<section class="panel source"><h2><span class="ico" aria-hidden="true">↓</span>원문 보기</h2>' +
-        "<p>이 요약은 원문을 바탕으로 정리한 것입니다. 전체 내용은 원문 파일에서 확인하세요. 원문의 저작권은 저자와 발행처에 있습니다.</p>" +
+      ((b.original || b.external) ? '<section class="panel source"><h2><span class="ico" aria-hidden="true">↓</span>원문 보기</h2>' +
+        "<p>이 요약은 원문을 바탕으로 정리한 것입니다. 전체 내용은 " + (b.external ? "발행처 사이트" : "원문 파일") + "에서 확인하세요. 원문의 저작권은 저자와 발행처에 있습니다.</p>" +
         '<div class="source__btn">' + dlBtn + "</div></section>" : "") +
       "</div></article>" +
 
