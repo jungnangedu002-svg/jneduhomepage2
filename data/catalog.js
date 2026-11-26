@@ -289,7 +289,11 @@ window.CATALOG = [
   },
   {
     id: "red-puppy-interview-2023",
-    original: "files/originals/red-puppy-interview-2023.pdf",
+    external: {
+      url: "https://www.ykspd.or.kr/",
+      label: "영곡사회심리발달학회로 이동하기",
+      note: "원문은 영곡사회심리발달학회 사이트에서 내려받거나 요청해 주세요."
+    },
     format: "PDF",
     firstPage: "assets/firstpages/red-puppy-interview-2023.jpg",
     callNo: "논문-2023-02",
