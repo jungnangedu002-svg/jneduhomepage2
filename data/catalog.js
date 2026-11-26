@@ -324,7 +324,11 @@ window.CATALOG = [
   },
   {
     id: "jayutu-basketball-2023",
-    original: "files/originals/jayutu-basketball-2023.pdf",
+    external: {
+      url: "https://www.npokorea.co.kr/",
+      label: "한국비영리학회로 이동하기",
+      note: "원문은 한국비영리학회 사이트에서 내려받거나 요청해 주세요."
+    },
     format: "PDF",
     firstPage: "assets/firstpages/jayutu-basketball-2023.jpg",
     callNo: "논문-2023-01",
