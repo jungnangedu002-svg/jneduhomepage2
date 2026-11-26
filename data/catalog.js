@@ -390,7 +390,11 @@ window.CATALOG = [
   },
   {
     id: "center-curriculum-study-2020",
-    original: "files/originals/center-curriculum-study-2020.pdf",
+    external: {
+      url: "http://www.k-add.or.kr/",
+      label: "한국발달장애학회로 이동하기",
+      note: "원문은 한국발달장애학회 사이트에서 내려받거나 요청해 주세요."
+    },
     format: "PDF",
     firstPage: "assets/firstpages/center-curriculum-study-2020.jpg",
     callNo: "논문-2020-01",
