@@ -30,7 +30,7 @@ window.CATALOG = [
     external: {
       url: "https://www.kafw.co.kr/",
       label: "한국미래설계복지실천학회로 이동하기",
-      note: "원문은 한국미래설계복지실천학회 사이트에서 내려받거나 요청해 주세요."
+      note: "원문은 한국미래설계복지실천학회 사이트에서 확인해주세요."
     },
     format: "PDF",
     firstPage: "assets/firstpages/self-perception-independence-2026.jpg",
@@ -66,7 +66,7 @@ window.CATALOG = [
     external: {
       url: "https://www.kafw.co.kr/",
       label: "한국미래설계복지실천학회로 이동하기",
-      note: "원문은 한국미래설계복지실천학회 사이트에서 내려받거나 요청해 주세요."
+      note: "원문은 한국미래설계복지실천학회 사이트에서 확인해주세요."
     },
     format: "PDF",
     firstPage: "assets/firstpages/social-worker-job-satisfaction-2026.jpg",
@@ -292,7 +292,7 @@ window.CATALOG = [
     external: {
       url: "https://www.ykspd.or.kr/",
       label: "영곡사회심리발달학회로 이동하기",
-      note: "원문은 영곡사회심리발달학회 사이트에서 내려받거나 요청해 주세요."
+      note: "원문은 영곡사회심리발달학회 사이트에서 확인해주세요."
     },
     format: "PDF",
     firstPage: "assets/firstpages/red-puppy-interview-2023.jpg",
@@ -327,7 +327,7 @@ window.CATALOG = [
     external: {
       url: "https://www.npokorea.co.kr/",
       label: "한국비영리학회로 이동하기",
-      note: "원문은 한국비영리학회 사이트에서 내려받거나 요청해 주세요."
+      note: "원문은 한국비영리학회 사이트에서 확인해주세요."
     },
     format: "PDF",
     firstPage: "assets/firstpages/jayutu-basketball-2023.jpg",
@@ -393,7 +393,7 @@ window.CATALOG = [
     external: {
       url: "http://www.k-add.or.kr/",
       label: "한국발달장애학회로 이동하기",
-      note: "원문은 한국발달장애학회 사이트에서 내려받거나 요청해 주세요."
+      note: "원문은 한국발달장애학회 사이트에서 확인해주세요."
     },
     format: "PDF",
     firstPage: "assets/firstpages/center-curriculum-study-2020.jpg",

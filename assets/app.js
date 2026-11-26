@@ -159,6 +159,13 @@
     return "";
   }
 
+  // 글자 폭 어림값(em) — 안내 문구를 한 줄에 맞추는 글자 크기 계산용
+  function textEm(t) {
+    var n = 0;
+    for (var i = 0; i < t.length; i++) { var c = t.charCodeAt(i); n += c === 32 ? 0.3 : c < 128 ? 0.55 : 0.98; }
+    return Math.ceil(n * 10) / 10 + 0.6;
+  }
+
   function viewBook(id) {
     var b = byId(id);
     if (!b) {
@@ -188,7 +195,7 @@
     var dlBtn = b.external
       ? '<a class="btn btn--primary" href="' + esc(b.external.url) + '" target="_blank" rel="noopener noreferrer">' + extIcon + esc(b.external.label || "원문 사이트로 이동하기") +
         '<span class="sr-only"> (새 창으로 열림)</span></a>' +
-        (b.external.note ? '<p class="ext-note">' + esc(b.external.note) + "</p>" : "")
+        (b.external.note ? '<p class="ext-note" style="--len: ' + textEm(b.external.note) + '">' + esc(b.external.note) + "</p>" : "")
       : b.original
       ? '<a class="btn btn--primary" href="' + esc(b.original) + '" download="' + esc(dlName) + '">' + dlIcon + "원문 내려받기 (" + esc(b.format || ext.toUpperCase()) + ")</a>"
       : '<p class="no-download">이 자료는 원문을 내려받을 수 없어요.</p>';

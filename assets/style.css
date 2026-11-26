@@ -373,7 +373,7 @@ kbd { font: inherit; font-size: .85em; padding: 1px 6px; border: 1px solid var(-
 /* 외부 사이트 안내 버튼 아래 문구 */
 /* 한 줄로 표시: 칸 너비에 맞춰 글자 크기를 줄임(최대 12px) */
 .btns, .source__btn { container-type: inline-size; }
-.ext-note { margin: 2px 0 0; padding: 8px; font-size: min(12px, calc((100cqi - 16px) / 28)); line-height: 1.5; letter-spacing: -.02em; white-space: nowrap; overflow: hidden; color: var(--ink-2); background: var(--gold-soft); border-radius: 8px; text-align: center; }
+.ext-note { margin: 2px 0 0; padding: 8px; font-size: min(12.5px, calc((100cqi - 16px) / var(--len, 28))); line-height: 1.5; letter-spacing: -.02em; white-space: nowrap; overflow: hidden; color: var(--ink-2); background: var(--gold-soft); border-radius: 8px; text-align: center; }
 .source__btn { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
-.source__btn .ext-note { display: block; max-width: 100%; margin: 0 !important; padding: 10px 14px; font-size: min(12px, calc((100cqi - 28px) / 28)); }
+.source__btn .ext-note { display: block; max-width: 100%; margin: 0 !important; padding: 10px 14px; font-size: min(13px, calc((100cqi - 28px) / var(--len, 28))); }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
